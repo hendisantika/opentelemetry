@@ -4,7 +4,7 @@
 
 We're using Google Jib to create a Docker Image `order-service:0.0.1` that you see in `docker-compose.yml` file.
 
-1. To create `order-service:0.0.1` by using `gradlew` with `Java 21`
+1. To create `order-service:0.0.1` by using `gradlew` with `Java 25`
 
 ```shell
 ./gradlew clean build jibDockerBuild -x test
@@ -67,11 +67,11 @@ then run
 ### Project Details:
 
 - **Spring Boot**: 4.0.2
-- **Java**: 21 LTS
+- **Java**: 25
 - **Jib**: 3.5.3
-- **OpenTelemetry Agent**: 1.32.0
+- **OpenTelemetry Agent**: 2.24.0
 - **Database**: PostgreSQL
-- **Base Image**: gcr.io/distroless/java21-debian12
+- **Base Image**: gcr.io/distroless/java25-debian13
 
 ### OpenTelemetry with Spring Boot:
 

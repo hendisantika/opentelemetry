@@ -63,7 +63,7 @@ jib {
 
     // https://console.cloud.google.com/gcr/images/distroless/GLOBAL
     from {
-        image = 'gcr.io/distroless/java17-debian12'
+        image = 'gcr.io/distroless/java25-debian13'
         platforms {
             platform {
                 architecture = 'arm64'
@@ -89,5 +89,9 @@ jib {
 }
 
 tasks.named('jibDockerBuild').configure {
+    dependsOn copyAgent
+}
+
+tasks.named('jibBuildTar').configure {
     dependsOn copyAgent
 }
