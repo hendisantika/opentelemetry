@@ -1,0 +1,22 @@
+spring:
+  application.name: opentelemetry
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://postgres:5433/opentelemetry
+    username: yu71
+    password: 53cret
+
+  sql:
+    init:
+      mode: always
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+
+    properties:
+      hibernate:
+        format_sql: true
+        default_schema: orders
+
