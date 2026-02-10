@@ -16,6 +16,7 @@ java {
 }
 
 configurations {
+    agent
     compileOnly {
         extendsFrom annotationProcessor
     }
@@ -26,7 +27,7 @@ repositories {
 }
 
 dependencies {
-    configs agent "io.opentelemetry.javaagent:opentelemetry-javaagent:1.32.0"
+    agent "io.opentelemetry.javaagent:opentelemetry-javaagent:1.32.0"
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     compileOnly 'org.projectlombok:lombok'
