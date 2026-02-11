@@ -62,12 +62,17 @@ jobs:
         username: hendisantika
         password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
-    - name: Build and Push Docker Image to Docker Hub
+    - name: Build and Push Docker Image to Docker Hub (with run number)
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-      run: |
-        ./gradlew jib \
-          --image=hendisantika/opentelemetry:${{ github.run_number }} \
-          --image=hendisantika/opentelemetry:latest
+      run: ./gradlew jib --image=hendisantika/opentelemetry:${{ github.run_number }}
+      env:
+        SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/testdb
+        SPRING_DATASOURCE_USERNAME: test
+        SPRING_DATASOURCE_PASSWORD: test
+
+    - name: Build and Push Docker Image to Docker Hub (latest)
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      run: ./gradlew jib --image=hendisantika/opentelemetry:latest
       env:
         SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/testdb
         SPRING_DATASOURCE_USERNAME: test
