@@ -1,6 +1,6 @@
 services:
   order-service:
-    image: order-service:0.0.1
+    image: hendisantika/opentelemetry:latest
     environment:
       OTEL_SERVICE_NAME: "order-service"
       OTEL_RESOURCE_ATTRIBUTES: "service=order-service,env=dev"
