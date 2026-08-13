@@ -57,7 +57,7 @@ jobs:
 
     - name: Log in to Docker Hub
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-      uses: docker/login-action@v3
+      uses: docker/login-action@v4
       with:
         username: hendisantika
         password: ${{ secrets.DOCKER_HUB_TOKEN }}
